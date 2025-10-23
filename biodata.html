@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bio Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e0f7fa;
+            padding: 50px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* RGB Glowing Border */
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 14px;
+            animation: rgbGlow 10s linear infinite;
+        }
+
+        @keyframes rgbGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* RGB Text for Heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbText 5s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes rgbText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /* RGB Glow on Focus */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px red,
+                        0 0 15px orange,
+                        0 0 20px yellow,
+                        0 0 25px green,
+                        0 0 30px blue,
+                        0 0 35px indigo,
+                        0 0 40px violet;
+            border-color: transparent;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.5s;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* RGB Glow on Hover */
+        input[type="submit"]:hover {
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            box-shadow: 0 0 10px red,
+                        0 0 15px orange,
+                        0 0 20px yellow,
+                        0 0 25px green,
+                        0 0 30px blue,
+                        0 0 35px indigo,
+                        0 0 40px violet;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Bio Data Form</h2>
+    <form action="submit_biodata.php" method="POST">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
